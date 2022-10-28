@@ -15,6 +15,8 @@ async function startServer() {
     typeDefs: typeDefs,
     resolvers: resolvers,
   });
+  await apolloServer.start();
+
   apolloServer.applyMiddleware({ app: app });
 
   app.get("/", (req, res) => {
