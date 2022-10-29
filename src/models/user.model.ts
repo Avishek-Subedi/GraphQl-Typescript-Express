@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+import isEmail from "validator/lib/isEmail";
+import { GENDER } from "../config/enums";
+
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -14,10 +17,13 @@ const UserSchema = new mongoose.Schema({
 
   gender: {
     type: String,
+    enum: GENDER,
   },
 
   email: {
     type: String,
+    validate: [isEmail, "invalid email"],
+    unique: true,
   },
 
   nationality: {
@@ -25,7 +31,8 @@ const UserSchema = new mongoose.Schema({
   },
 
   dateOfBirth: {
-    type: String,
+    type: Date,
+    alias: "birthdate",
   },
   educationBackground: {
     type: String,

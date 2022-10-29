@@ -5,11 +5,11 @@ const typeDefs = gql`
   ${User}
 
   type Query {
-    getAllUsers: [User]
+    getAllUsers(page: Int = 1, limit: Int = 10): [User]
   }
 
   type Mutation {
-    createUser(user: UserInput): User
+    createUser(user: UserInput!): User
   }
 `;
 

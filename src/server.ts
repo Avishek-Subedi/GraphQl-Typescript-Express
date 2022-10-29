@@ -15,9 +15,10 @@ async function startServer() {
     typeDefs: typeDefs,
     resolvers: resolvers,
   });
+
   await apolloServer.start();
 
-  apolloServer.applyMiddleware({ app: app });
+  apolloServer.applyMiddleware({ app });
 
   app.get("/", (req, res) => {
     res.send("API is up and running!");
