@@ -1,4 +1,4 @@
-#GraphQL Task : Varosha Technologies
+#GraphQL
 
 This is the simple CRUD operations on GraphQL
 
